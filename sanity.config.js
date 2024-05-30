@@ -24,7 +24,29 @@ export default defineConfig({
   title: "Project Name",
   projectId,
   dataset,
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool({
+      structure: (S, context) =>
+        S.list()
+          .title("Content")
+          .items([
+            S.listItem()
+            .title("Home")
+            .icon()
+            .child(
+              S.document()
+              .schemaType("home")
+              .documentId("home")
+            ),
+            ...S.documentTypeListItems().filter(
+              (listItem) =>
+                ![
+                  "home",
+                ].includes(listItem.getId() ?? "default")
+            ),
+          ]),
+    }),
+  ],
   schema: {
     types: schemaTypes,
   },

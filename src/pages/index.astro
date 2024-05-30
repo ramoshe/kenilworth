@@ -9,17 +9,49 @@ export const prerender = false;
   <section>
     <h1>Home</h1>
   </section>
+  <section id="buttons">
+    <a class="btn" href="/history">Community History</a>
+    <a class="btn" href="/events">Events Calendar</a>
+    <a class="btn" href="/resources">Find Resources</a>
+    <a class="btn" href="/board">Board Member Info</a>
+  </section>
   <section id="contact">
-    <h3>Contact the Board: KPNAinc@gmail.com</h3>
+    <h3>Contact the Board: <a href="mailto:KPNAinc@gmail.com">KPNAinc@gmail.com</a></h3>
   </section>
 </Layout>
 
 <style>
+  #buttons {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn {
+    text-align: center;
+    text-decoration: none;
+    border: 3px solid var(--primary);
+    border-radius: 100px;
+    width: 40%;
+    min-width: 250px;
+    justify-self: center;
+    padding: 1em;
+    margin: 1em;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--primary);
+    box-shadow: 5px 5px 0px var(--gray);
+  }
   #contact {
     margin: 0 auto;
     height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5em;
+  }
+  #contact a {
+
   }
 </style>
