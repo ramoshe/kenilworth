@@ -1,13 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import { getPosts } from "../utils/sanity";
-// const posts = await getPosts();
+import { getHome } from "../utils/sanity";
+const content = await getHome();
+
+const images = content[0].images;
+let random = Math.floor(Math.random() * (images.length));
+const image = images[random];
+
+import { urlFor } from "../utils/image";
+import { Image } from 'astro:assets';
+
 export const prerender = false;
 ---
 
 <Layout title="Kenilworth Park Neighborhood Association">
-  <section>
-    <h1>Home</h1>
+  <section id="welcome">
+    <div class="welcome-text">
+      <p>{content[0].welcome}</p>
+    </div>
+    <div class="welcome-image">
+      <Image
+        src={urlFor(image).width(image.width).height(image.height).url()}
+        alt='Kenilworth Park'
+        width={image.width}
+        height={image.height} />
+    </div>
   </section>
   <section id="buttons">
     <a class="btn" href="/history">Community History</a>
@@ -21,6 +38,30 @@ export const prerender = false;
 </Layout>
 
 <style>
+  #welcome {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 8vh;
+    margin-top: 2vh;
+  }
+  #welcome div {
+    width: 48%;
+  }
+  .welcome-text p {
+    font-size: 1.1em;
+    line-height: 1.5em;
+  }
+  .welcome-image {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .welcome-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
   #buttons {
     width: 100%;
     display: flex;
@@ -42,7 +83,17 @@ export const prerender = false;
     font-weight: 600;
     color: var(--primary);
     box-shadow: 5px 5px 0px var(--gray);
+    transition: all .5s ease;
   }
+  .btn:hover {
+    background-color: var(--primary-dark);
+    color: var(--gray-light);
+  }
+  .btn:active {
+    background-color: var(--primary);
+    box-shadow: 2px 2px 0px var(--gray);
+  }
+
   #contact {
     margin: 0 auto;
     height: 30vh;

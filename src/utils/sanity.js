@@ -13,3 +13,9 @@ export async function getPost(slug) {
     },
   );
 }
+
+export async function getHome() {
+  return await sanityClient.fetch(
+    groq`*[_type == "home"]`,
+  );
+}

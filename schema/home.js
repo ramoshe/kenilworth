@@ -7,7 +7,7 @@ export default defineType({
     defineField({
       name: "welcome",
       title: "Welcome Message",
-      type: "blockContent",
+      type: "text",
       description: "Text content that appears on the home page."
     }),
     defineField({

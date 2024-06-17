@@ -1,6 +1,6 @@
 ---
+const year = new Date().getFullYear();
 ---
-
 <footer class="footer">
   <p class="footer__text">
     Made with <svg
@@ -16,15 +16,21 @@
         stroke="currentColor"
         stroke-width="1.2"
       ></path></svg
-    > by <a href="https://theramoshe.com" target="_blank">theRamoShe</a>
+    > by <a href="https://theramoshe.com" target="_blank">theRamoShe</a> | &copy; {year}
   </p>
 </footer>
 
 <style>
   .footer {
+    height: 5em;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: auto;
+    background-color: var(--primary-dark);
+    color: var(--gray);
+  }
+  a {
+    color: inherit;
   }
 </style>
