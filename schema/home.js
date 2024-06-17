@@ -11,9 +11,9 @@ export default defineType({
       description: "Text content that appears on the home page."
     }),
     defineField({
-			name: "images",
-			title: "Neighborhood Images",
-			type: "array",
+		name: "images",
+		title: "Neighborhood Images",
+		type: "array",
       description: "Images that will be chosen from at random to appear when a user loads the site.",
 			options: { layout: "grid" },
 			of: [

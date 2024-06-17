@@ -19,3 +19,9 @@ export async function getHome() {
     groq`*[_type == "home"]`,
   );
 }
+
+export async function getHistory() {
+  return await sanityClient.fetch(
+    groq`*[_type == "history"]`,
+  );
+}

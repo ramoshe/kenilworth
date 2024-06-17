@@ -38,10 +38,19 @@ export default defineConfig({
               .schemaType("home")
               .documentId("home")
             ),
+            S.listItem()
+            .title("History")
+            .icon()
+            .child(
+              S.document()
+              .schemaType("history")
+              .documentId("history")
+            ),
             ...S.documentTypeListItems().filter(
               (listItem) =>
                 ![
                   "home",
+                  "history"
                 ].includes(listItem.getId() ?? "default")
             ),
           ]),

@@ -1,12 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import { getPosts } from "../utils/sanity";
-// const posts = await getPosts();
+import { getHistory } from "../utils/sanity";
+const content = await getHistory();
+import { PortableText } from "astro-portabletext";
+console.log(content[0].content);
+
 export const prerender = false;
 ---
 
 <Layout title="History | Kenilworth Park Neighborhood Association">
-  <section>
-    <h1>History</h1>
+  <section id="content">
+    {content[0].content.map(section =>
+    <div class="section">
+      <h2 class="section-title">{section.sectionTitle}</h2>
+      <PortableText value={section.sectionText} class="section-text" />
+    </div>
+    )}
   </section>
 </Layout>
+
+<style>
+  #content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20vh;
+  }
+  .section {
+    width: 47%;
+  }
+</style>
+<style is:inline>
+  .section-text {
+    font-size: 1.1em;
+    line-height: 1.5em;
+  }
+</style>
