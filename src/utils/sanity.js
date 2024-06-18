@@ -25,3 +25,9 @@ export async function getHistory() {
     groq`*[_type == "history"]`,
   );
 }
+
+export async function getEvents() {
+  return await sanityClient.fetch(
+    groq`*[_type == "events"]`,
+  );
+}

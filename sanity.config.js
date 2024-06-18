@@ -17,7 +17,6 @@ if (!projectId || !dataset) {
 }
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
-import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schema";
 export default defineConfig({
   name: "project-name",
@@ -50,7 +49,7 @@ export default defineConfig({
               (listItem) =>
                 ![
                   "home",
-                  "history"
+                  "history",
                 ].includes(listItem.getId() ?? "default")
             ),
           ]),

@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import { getPosts } from "../utils/sanity";
-// const posts = await getPosts();
+import { getEvents } from "../utils/sanity";
+const content = await getEvents();
 export const prerender = false;
 ---
 
