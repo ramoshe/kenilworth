@@ -17,10 +17,12 @@ if (!projectId || !dataset) {
 }
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
+import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schema";
+import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 export default defineConfig({
-  name: "project-name",
-  title: "Project Name",
+  name: "kenilworth-park",
+  title: "Kenilworth Park",
   projectId,
   dataset,
   plugins: [
@@ -45,15 +47,33 @@ export default defineConfig({
               .schemaType("history")
               .documentId("history")
             ),
+            S.listItem()
+            .title("Board")
+            .child(
+              S.document()
+              .schemaType("board")
+              .documentId("board")
+            ),
+            orderableDocumentListDeskItem({
+              type: "resource",
+              title: "Resources",
+              // icon: ComposeIcon,
+              menuItems: [],
+              S,
+              context,
+            }),
             ...S.documentTypeListItems().filter(
               (listItem) =>
                 ![
                   "home",
                   "history",
+                  "board",
+                  "resource",
                 ].includes(listItem.getId() ?? "default")
             ),
           ]),
     }),
+    visionTool(),
   ],
   schema: {
     types: schemaTypes,

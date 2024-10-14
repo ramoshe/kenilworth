@@ -15,8 +15,15 @@ export default defineType({
         type: "object",
         icon: BlockContentIcon,
         fields: [
-          {name: "sectionTitle", type: "string", title: "Section Title"},
-          {name: "sectionText", type: "blockContent", title: "Section Text"},
+          {
+            name: "sectionTitle",
+            type: "string",
+            title: "Section Title"
+          },
+          {
+            name: "sectionText",
+            type: "blockContent",
+            title: "Section Text"},
         ]
       }]
     }),

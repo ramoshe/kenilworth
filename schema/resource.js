@@ -1,7 +1,7 @@
 import { defineField, defineType } from "sanity";
 export default defineType({
-  name: "post",
-  title: "Post",
+  name: "resource",
+  title: "Resources",
   type: "document",
   fields: [
     defineField({
@@ -37,6 +37,12 @@ export default defineType({
       name: "body",
       title: "Body",
       type: "blockContent",
+    }),
+    defineField({
+      name: "orderRank",
+      title: "Order",
+      type: "string",
+      hidden: true,
     }),
   ],
   preview: {
