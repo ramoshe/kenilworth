@@ -23,7 +23,9 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   // Hybrid+adapter is required to support embedded Sanity Studio
   output: "server",
-  adapter: netlify(),
+  adapter: netlify({
+    imageCDN: false,
+  }),
   build: {
     output: 'static', // or another correct path based on your setup
     dist: 'dist', // default output folder
