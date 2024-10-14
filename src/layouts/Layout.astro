@@ -3,6 +3,7 @@
 import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Navigation from '../components/Navigation.astro';
+import MobileNav from '../components/MobileNav.astro';
 import Footer from '../components/Footer.astro';
 
 const { title } = Astro.props;
@@ -35,9 +36,11 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
+    <div id="mobilenav"><MobileNav /></div>
     <div class="container">
       <Header />
-      <Navigation />
+      <div id="regularnav"><Navigation /></div>
+      <div id="mobileseparator"></div>
       <main>
         <slot />
       </main>
@@ -60,6 +63,12 @@ const { title } = Astro.props;
     margin: 0 100px;
     margin-top: 45px;
   }
+  #mobileseparator {
+    margin: 0 auto;
+    width: 80%;
+    height: 0;
+    border-bottom: 3px solid var(--primary-light);
+  }
 
   @media (max-width: 1000px) {
     .container {
@@ -75,6 +84,16 @@ const { title } = Astro.props;
     }
   }
 
+  @media (min-width: 800px) {
+    #mobilenav, #mobileseparator {
+      display: none;
+    }
+  }
+  @media (max-width: 800px) {
+    #regularnav {
+      display: none;
+    }
+  }
 
 </style>
 
