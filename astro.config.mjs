@@ -27,6 +27,7 @@ export default defineConfig({
   build: {
     output: 'static', // or another correct path based on your setup
     dist: 'dist', // default output folder
+    format: 'directory', // ensure this is set to 'directory' (default) for correct file structure
   },
   integrations: [sanityIntegration({
     projectId,
