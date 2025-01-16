@@ -21,9 +21,9 @@ import { structureTool } from "sanity/structure";
 import { schemaTypes } from "./schema";
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 import {HomeIcon} from '@sanity/icons';
-import {BlockContentIcon} from '@sanity/icons'
+import {BlockContentIcon} from '@sanity/icons';
 import {UsersIcon} from '@sanity/icons';
-import {AddDocumentIcon} from '@sanity/icons'
+import {BillIcon} from '@sanity/icons';
 export default defineConfig({
   name: "kenilworth-park",
   title: "Kenilworth Park",
@@ -62,7 +62,7 @@ export default defineConfig({
             orderableDocumentListDeskItem({
               type: "resource",
               title: "Resources",
-              icon: AddDocumentIcon,
+              icon: BillIcon,
               menuItems: [],
               S,
               context,
