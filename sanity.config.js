@@ -23,7 +23,7 @@ import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 import {HomeIcon} from '@sanity/icons';
 import {BlockContentIcon} from '@sanity/icons';
 import {UsersIcon} from '@sanity/icons';
-import {BillIcon} from '@sanity/icons';
+import {ArchiveIcon} from '@sanity/icons';
 export default defineConfig({
   name: "kenilworth-park",
   title: "Kenilworth Park",
@@ -62,7 +62,7 @@ export default defineConfig({
             orderableDocumentListDeskItem({
               type: "resource",
               title: "Resources",
-              icon: BillIcon,
+              icon: ArchiveIcon,
               menuItems: [],
               S,
               context,
