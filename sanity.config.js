@@ -20,6 +20,10 @@ import { structureTool } from "sanity/structure";
 // import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schema";
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
+import {HomeIcon} from '@sanity/icons';
+import {BlockContentIcon} from '@sanity/icons'
+import {UsersIcon} from '@sanity/icons';
+import {AddDocumentIcon} from '@sanity/icons'
 export default defineConfig({
   name: "kenilworth-park",
   title: "Kenilworth Park",
@@ -33,7 +37,7 @@ export default defineConfig({
           .items([
             S.listItem()
             .title("Home")
-            .icon()
+            .icon(HomeIcon)
             .child(
               S.document()
               .schemaType("home")
@@ -41,7 +45,7 @@ export default defineConfig({
             ),
             S.listItem()
             .title("History")
-            .icon()
+            .icon(BlockContentIcon)
             .child(
               S.document()
               .schemaType("history")
@@ -49,6 +53,7 @@ export default defineConfig({
             ),
             S.listItem()
             .title("Board")
+            .icon(UsersIcon)
             .child(
               S.document()
               .schemaType("board")
@@ -57,7 +62,7 @@ export default defineConfig({
             orderableDocumentListDeskItem({
               type: "resource",
               title: "Resources",
-              // icon: ComposeIcon,
+              icon: AddDocumentIcon,
               menuItems: [],
               S,
               context,
