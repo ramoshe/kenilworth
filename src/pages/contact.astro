@@ -1,2 +1,24 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import ContactObject from "../components/ContactObject.astro";
+export const prerender = true;
 ---
+
+<Layout title="Contact">
+    <section id="contact">
+        <ContactObject text="If you have any questions or comments, you can write an email to the Board anytime." btntext="Email the Board" btnlink="mailto:KPNAinc@gmail.com" />
+        <ContactObject text="Our community Facebook group is a great place to connect and share." btntext="Go to Facebook" btnlink="https://www.facebook.com/groups/kenilworthparkneighborhood/" />
+        <ContactObject text="Join the Google Group to stay connected with your neighbors. " btntext="Go to Google" btnlink="https://groups.google.com/g/kenilworth-park-neighborhood-association" />
+    </section>
+</Layout>
+
+<style>
+    #contact {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10em;
+    }
+</style>

@@ -1,0 +1,47 @@
+---
+interface Props {
+    text: string;
+    link: string;
+};
+const { text, link } = Astro.props;
+---
+
+<a
+    href={link}
+    class="btn"
+>
+    {text}
+</a>
+
+<style>
+    .btn {
+        text-align: center;
+        text-decoration: none;
+        border: 3px solid var(--primary);
+        border-radius: 100px;
+        width: 40%;
+        min-width: 200px;
+        justify-self: center;
+        padding: 1em;
+        margin: 1em;
+        font-size: 1.2em;
+        font-weight: 600;
+        color: var(--primary);
+        box-shadow: 7px 7px 0px var(--gray);
+        transition: all .5s ease;
+    }
+    .btn:hover {
+        background-color: var(--primary-dark);
+        color: var(--gray-light);
+    }
+    .btn:active {
+        background-color: var(--primary);
+        box-shadow: 2px 2px 0px var(--gray);
+    }
+
+    @media (max-width: 1200px) {
+        .btn {
+            width: 80%;
+        }
+    }
+</style>

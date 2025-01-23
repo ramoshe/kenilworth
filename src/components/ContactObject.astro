@@ -1,0 +1,32 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+    text: string;
+    btntext: string;
+    btnlink: string;
+}
+const { text, btntext, btnlink } = Astro.props;
+---
+<div class="contact-object">
+    <h3 class="object-text">{text}</h3>
+    <Button text={btntext} link={btnlink} />
+</div>
+
+<style>
+    .contact-object {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 17em;
+        width: 40%;
+    }
+    .contact-object:first-of-type {
+        width: 100%;
+    }
+    .contact-object:first-of-type .object-text {
+        max-width: 50%;
+    }
+</style>

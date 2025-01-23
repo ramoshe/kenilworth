@@ -1,15 +1,17 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import { PortableText } from "astro-portabletext";
+import { urlFor } from "../utils/image";
+import { Image } from 'astro:assets';
+
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+
 import { getHome } from "../utils/sanity";
 const content = await getHome();
 
 const images = content[0].images;
 let random = Math.floor(Math.random() * (images.length));
 const image = images[random];
-
-import { urlFor } from "../utils/image";
-import { Image } from 'astro:assets';
 
 export const prerender = false;
 ---
@@ -28,10 +30,10 @@ export const prerender = false;
     </div>
   </section>
   <section id="buttons">
-    <a class="btn" href="/history">Community History</a>
-    <a class="btn" href="/events">Events Calendar</a>
-    <a class="btn" href="/resources">Find Resources</a>
-    <a class="btn" href="/board">Board Member Info</a>
+    <Button text="Community History" link="/history" />
+    <Button text="Events Calendar" link="/events" />
+    <Button text="Find Resources" link="/resources" />
+    <Button text="Meet the Board" link="/board" />
   </section>
   <section id="contact">
     <h3>Contact the Board: <a href="mailto:KPNAinc@gmail.com">KPNAinc@gmail.com</a></h3>
@@ -75,36 +77,6 @@ export const prerender = false;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-  }
-  .btn {
-    text-align: center;
-    text-decoration: none;
-    border: 3px solid var(--primary);
-    border-radius: 100px;
-    width: 40%;
-    min-width: 200px;
-    justify-self: center;
-    padding: 1em;
-    margin: 1em;
-    font-size: 1.2em;
-    font-weight: 600;
-    color: var(--primary);
-    box-shadow: 5px 5px 0px var(--gray);
-    transition: all .5s ease;
-  }
-  .btn:hover {
-    background-color: var(--primary-dark);
-    color: var(--gray-light);
-  }
-  .btn:active {
-    background-color: var(--primary);
-    box-shadow: 2px 2px 0px var(--gray);
-  }
-
-  @media (max-width: 1200px) {
-    .btn {
-      width: 80%;
-    }
   }
 
   #contact {
