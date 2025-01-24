@@ -1,18 +1,5 @@
 import { sanityClient } from "sanity:client";
 import groq from "groq";
-export async function getPosts() {
-  return await sanityClient.fetch(
-    groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`,
-  );
-}
-export async function getPost(slug) {
-  return await sanityClient.fetch(
-    groq`*[_type == "post" && slug.current == $slug][0]`,
-    {
-      slug,
-    },
-  );
-}
 
 export async function getHome() {
   return await sanityClient.fetch(
@@ -26,8 +13,14 @@ export async function getHistory() {
   );
 }
 
-export async function getEvents() {
+export async function getResources() {
   return await sanityClient.fetch(
-    groq`*[_type == "events"]`,
+    groq`*[_type == "resource"]`,
+  );
+}
+
+export async function getBoard() {
+  return await sanityClient.fetch(
+    groq`*[_type == "board"]`,
   );
 }

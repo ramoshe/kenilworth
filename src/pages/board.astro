@@ -1,12 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import { getPosts } from "../utils/sanity";
-// const posts = await getPosts();
+import BoardMember from "../components/BoardMember.astro";
+
+import { getBoard } from "../utils/sanity";
+const board = await getBoard();
+const members = board[0].members;
+
 export const prerender = false;
 ---
 
 <Layout title="Board">
   <section>
     <h3>Board</h3>
+    { members.map((member:any) => <BoardMember photo={member.photo} name={member.name} position={member.title} contact={member.email} />) }
   </section>
 </Layout>

@@ -51,15 +51,15 @@ export const prerender = false;
   #welcome div {
     width: 45%;
   }
-  .welcome-image {
+  /* .welcome-image {
     display: flex;
     justify-content: flex-end;
-  }
+  } */
   .welcome-image img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
     object-fit: cover;
+    aspect-ratio: 1 !important;
   }
 
   @media (max-width: 1000px) {
@@ -77,6 +77,8 @@ export const prerender = false;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
   }
 
   #contact {
@@ -91,5 +93,13 @@ export const prerender = false;
 <style is:inline>
   .welcome-text p {
     line-height: 1.5em;
+  }
+  .btn {
+    min-width: 25%;
+  }
+  @media (min-width: 1400px) {
+    .btn {
+      min-width: 35%;
+    }
   }
 </style>
