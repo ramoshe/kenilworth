@@ -11,7 +11,21 @@ export const prerender = false;
 
 <Layout title="Board">
   <section>
-    <h3>Board</h3>
-    { members.map((member:any) => <BoardMember photo={member.photo} name={member.name} position={member.title} contact={member.email} />) }
+    <!-- <h3>Board</h3> -->
+    <div class="members">
+      { members.map((member:any) => <BoardMember photo={member.photo} name={member.name} position={member.title} contact={member.email} />) }
+    </div>
   </section>
 </Layout>
+
+<style>
+.members {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7vh 5%;
+  margin-bottom: 14em;
+}
+</style>

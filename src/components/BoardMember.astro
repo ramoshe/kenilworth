@@ -1,6 +1,6 @@
 ---
-import { urlFor } from "../utils/image";
 import { Image } from 'astro:assets';
+import { urlFor } from "../utils/image";
 
 interface Props {
     photo: {
@@ -13,13 +13,38 @@ interface Props {
 }
 const { photo, name, position, contact } = Astro.props;
 ---
+
 <div class="member-object">
     <Image
         src={urlFor(photo).width(photo.width).height(photo.height).url()}
         alt='Kenilworth Park'
         width={photo.width}
         height={photo.height} />
-    <p>{name}</p>
-    <p>{position}</p>
-    <p>{contact}</p>
+    <p class="name">{name}</p>
+    <p class="position">{position}</p>
+    <p class="contact">{contact}</p>
 </div>
+
+<style>
+    .member-object {
+        width: 20%;
+        height: auto;
+        text-align: center;
+    }
+    .member-object img {
+        width: 100%;
+        height: auto;
+        border-radius: 100%;
+        object-fit: cover;
+        aspect-ratio: 1;
+    }
+    .member-object p {
+        margin: 0;
+    }
+    .name {
+        font-weight: 700;
+    }
+    .position {
+        font-style: italic;
+    }
+</style>
