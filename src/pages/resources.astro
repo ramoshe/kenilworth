@@ -1,12 +1,66 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import { getPosts } from "../utils/sanity";
-// const posts = await getPosts();
+import Button from "../components/Button.astro";
+import ResourceCard from "../components/ResourceCard.astro";
+
+import { getResources } from "../utils/sanity";
+const resources = await getResources();
 export const prerender = false;
 ---
 
 <Layout title="Resources">
-  <section>
-    <h3>Resources</h3>
+  <section id="nav-buttons">
+    <p id="instructions">Use the buttons to skip to a category.</p>
+    { resources.map(category =>
+      <Button link=`#${category.title}` text={category.title} />
+    ) }
+  </section>
+  <section id="resources">
+    { resources.map(category =>
+    <div class="resource-category" id={category.title}>
+      <h3 class="category-title">{category.title}</h3>
+      <div class="category-cards">{category.cards.map(card => <ResourceCard content={card.content} />)}</div>
+    </div>
+    ) }
   </section>
 </Layout>
+
+<style>
+  #nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3em;
+  }
+  #instructions {
+    width: 100%;
+    text-align: center;
+  }
+  #resources {
+    margin-bottom: 14em;
+  }
+  .resource-category {
+    margin-bottom: 5em;
+  }
+  .category-title {
+    font-weight: 600;
+    font-size: 2em;
+    text-align: center;
+  }
+  .category-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 7vh 5%;
+  }
+</style>
+
+<style is:inline>
+  #nav-buttons .btn {
+    font-size: 1em;
+    padding: .5em 1em;
+    box-shadow: 5px 5px 0px var(--gray);
+  }
+</style>

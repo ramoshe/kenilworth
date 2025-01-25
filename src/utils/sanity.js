@@ -15,7 +15,7 @@ export async function getHistory() {
 
 export async function getResources() {
   return await sanityClient.fetch(
-    groq`*[_type == "resource"]`,
+    groq`*[_type == "resource"] | order(orderRank)`,
   );
 }
 

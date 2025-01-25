@@ -6,54 +6,41 @@ export default defineType({
   fields: [
     defineField({
       name: "title",
-      title: "Title",
+      title: "Category Title",
       type: "string",
     }),
-    defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      validation: (Rule) => Rule.required(),
-      options: {
-        source: "title",
-        maxLength: 96,
+    defineField ({
+      name: "cards",
+      title: "Cards",
+      type: "array",
+      options: { sortable: true },
+		  of: [{
+        type: "object",
+        fields: [
+          {
+            name: "identifier",
+            title: "Identifier",
+            type: "string"
+          },
+          {
+            name: "content",
+            title: "Contents",
+            type: "blockContent",
+          },
+        ]
+      }],
+      preview: {
+        select: {
+          title: "identifier",
+        },
       },
-    }),
-    defineField({
-      name: "excerpt",
-      title: "Excerpt",
-      type: "text",
-      rows: 4,
-    }),
-    defineField({
-      name: "mainImage",
-      title: "Main image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
-      name: "body",
-      title: "Body",
-      type: "blockContent",
     }),
     defineField({
       name: "orderRank",
       title: "Order",
       type: "string",
       hidden: true,
+      initialValue: "0|100000:",
     }),
   ],
-  preview: {
-    select: {
-      title: "title",
-      author: "author.name",
-      media: "mainImage",
-    },
-    prepare(selection) {
-      const { author } = selection;
-      return { ...selection, subtitle: author && `by ${author}` };
-    },
-  },
 });
