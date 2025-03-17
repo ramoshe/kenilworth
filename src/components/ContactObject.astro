@@ -20,7 +20,7 @@ const { text, btntext, btnlink } = Astro.props;
         justify-content: center;
         align-items: center;
         text-align: center;
-        height: 14em;
+        min-height: 14em;
         width: 40%;
     }
     .contact-object:first-of-type {
@@ -31,5 +31,14 @@ const { text, btntext, btnlink } = Astro.props;
     }
     .object-text {
         margin-bottom: 0;
+    }
+
+    @media (max-width: 800px) {
+        .contact-object {
+            width: 100%;
+        }
+        .contact-object:first-of-type .object-text {
+            max-width: 100%;
+        }
     }
 </style>

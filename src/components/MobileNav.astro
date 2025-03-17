@@ -42,7 +42,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
     top: var(--hamburger-margin);
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 20;
     cursor: pointer;
   }
   .hamburger-menu:has(input:checked) {
@@ -97,6 +97,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
     min-width: calc(50vw + var(--bar-width));
     min-height: 100vh;
     position: absolute;
+    z-index: 10;
   }
   .hamburger-menu:has(input:checked) + .sidebar {
     translate: 0;

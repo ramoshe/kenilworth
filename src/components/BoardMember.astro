@@ -33,6 +33,7 @@ const { photo, name, position, contact } = Astro.props;
     }
     .member-object img {
         width: 100%;
+        max-width: 200px;
         height: auto;
         border-radius: 100%;
         object-fit: cover;
@@ -47,5 +48,16 @@ const { photo, name, position, contact } = Astro.props;
     }
     .position {
         font-style: italic;
+    }
+
+    @media (max-width: 1200px) {
+        .member-object {
+            width: 45%;
+        }
+    }
+    @media (max-width: 500px) {
+        .member-object {
+            width: 100%;
+        }
     }
 </style>
