@@ -40,7 +40,8 @@ const currentPath = pathname.slice(1); // remove the first "/"
     width: max-content;
     position: absolute;
     top: var(--hamburger-margin);
-    left: var(--hamburger-margin);
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 2;
     cursor: pointer;
   }
@@ -93,7 +94,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
     padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
     background-color: var(--foreground);
     color: var(--background);
-    min-width: 50vw;
+    min-width: calc(50vw + var(--bar-width));
     min-height: 100vh;
     position: absolute;
   }

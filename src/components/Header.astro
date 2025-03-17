@@ -1,38 +1,46 @@
 ---
 ---
 
-<header class="header">
+<header>
   <h1 class="title">Kenilworth Park</h1>
   <h2 class="subtitle">Neighborhood Association</h2>
   <p class="tagline">Kenilworth Park...A neighborhood <strong>WORTH</strong> caring about.</p>
 </header>
 
 <style>
-  .header {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     margin: 2.5em auto;
   }
   .title {
     font-size: 2.5em;
-    line-height: 0em;
+    line-height: 0;
   }
   .subtitle {
-    margin-bottom: 1em;
     font-size: 1.5em;
+    line-height: 0;
   }
   .tagline {
     font-size: 1.1em;
   }
 
   @media (max-width: 800px) {
+    header {
+      margin: 4em auto 1em;
+    }
     .title {
-      font-size: 2em;
+      font-size: 1.8em;
     }
     .subtitle {
       font-size: 1.3em;
     }
     .tagline {
       font-size: 1em;
+      max-width: 75%;
     }
   }
 </style>
