@@ -28,12 +28,13 @@ const { photo, name, position, contact } = Astro.props;
 <style>
     .member-object {
         width: 20%;
+        min-width: fit-content;
         height: auto;
         text-align: center;
     }
     .member-object img {
         width: 100%;
-        max-width: 200px;
+        /* max-width: 150px; */
         height: auto;
         border-radius: 100%;
         object-fit: cover;

@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getHistory } from "../utils/sanity";
-const content = await getHistory();
 import { PortableText } from "astro-portabletext";
-console.log(content[0].content);
+
+const content = await getHistory();
 
 export const prerender = false;
 ---

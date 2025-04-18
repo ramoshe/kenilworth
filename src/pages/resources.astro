@@ -9,20 +9,24 @@ export const prerender = false;
 ---
 
 <Layout title="Resources">
+  { resources ?
+
   <section id="nav-buttons">
     <p id="instructions">Use the buttons to skip to a category.</p>
-    { resources.map(category =>
+    { resources ? resources.map(category =>
       <Button link=`#${category.title}` text={category.title} />
-    ) }
+    ) : null }
   </section>
   <section id="resources">
-    { resources.map(category =>
+    { resources ? resources.map(category =>
     <div class="resource-category" id={category.title}>
       <h3 class="category-title">{category.title}</h3>
       <div class="category-cards">{category.cards.map(card => <ResourceCard content={card.content} />)}</div>
     </div>
-    ) }
+    ) : null }
   </section>
+
+  : <h2>Coming Soon!</h2> }
 </Layout>
 
 <style>
