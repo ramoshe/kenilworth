@@ -1,6 +1,7 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
 import { ViewTransitions } from 'astro:transitions';
+import { SEO } from "astro-seo";
 import Header from '../components/Header.astro';
 import Navigation from '../components/Navigation.astro';
 import MobileNav from '../components/MobileNav.astro';
@@ -13,18 +14,18 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/favicon.svg"
-    />
-    <meta
-      name="generator"
-      content={Astro.generator}
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <SEO
+      description="The Kenilworth Park Neighborhood Association connects residents and neighbors with updates, resources, and events that support a vibrant, engaged community. Discover what makes Kenilworth Park a great place to live and visit."
+      openGraph={{
+        basic: {
+          title: "Kenilworth Park Neighborhood Association",
+          type: "website",
+          image: "/ogimg.png",
+        }
+      }}
     />
 
     <!-- Favicon -->

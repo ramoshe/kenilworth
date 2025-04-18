@@ -19,17 +19,21 @@ import react from "@astrojs/react";
 // https://docs.astro.build/en/guides/server-side-rendering/#adding-an-adapter
 import netlify from "@astrojs/netlify";
 
+import robotsTxt from "astro-robots-txt";
+
 // https://astro.build/config
 export default defineConfig({
   // Hybrid+adapter is required to support embedded Sanity Studio
   output: "server",
   adapter: netlify({
-    imageCDN: false,
+    imageCDN: false
   }),
   build: {
-    output: 'static', // or another correct path based on your setup
-    dist: 'dist', // default output folder
-    format: 'directory', // ensure this is set to 'directory' (default) for correct file structure
+    output: 'static',
+    // or another correct path based on your setup
+    dist: 'dist',
+    // default output folder
+    format: 'directory' // ensure this is set to 'directory' (default) for correct file structure
   },
   integrations: [sanityIntegration({
     projectId,
@@ -39,5 +43,5 @@ export default defineConfig({
     // `false` if you want to ensure fresh data
     apiVersion: "2023-03-20" // Set to date of setup to use the latest API version
   }), react() // Required for Sanity Studio
-  ]
+  , robotsTxt()]
 });
